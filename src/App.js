@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Header from './Header.js';
 
 
 class HomePage extends Component {
@@ -23,8 +24,12 @@ class App extends Component {
    };
   render() { 
     return ( 
-      <>
-      </>
+        <>
+          <BrowserRouter>
+          <Header />
+          </BrowserRouter>
+
+        </>
      );
   }
 }
