@@ -15,7 +15,12 @@ class HomePage extends Component {
 export default HomePage;
 
 class App extends Component {
-  state = {  }
+  state = { 
+    token: localStorage.getItem('Token'),
+   };
+   setToken = (val) => {
+     this.setState({ token: val })
+   };
   render() { 
     return ( 
       <>
