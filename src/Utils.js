@@ -14,17 +14,28 @@ export async function getToken(login, type) {
     return data.token;
 }
 
-export const getTodos = async () => {
-const resp = await fetch(`${URL}api/todos`);
+export async function getTodos(token) {
+const todosURL = `${URL}api/todos`; 
+const resp = await fetch(todosURL, {
+    
+    method: 'GET',
+    headers: {
+        'Content-Type': 'application/json',
+    Authorization: token,
+    },
+});
+
 const data = await resp.json();
 return data;
 };
 
-export const updateTodos = async (obj) => {
-    const resp = await fetch(`${URL}api/todos/${obj.id}`,{
+export async function updateTodos(token, obj) {
+    const todosURL = `${URL}api/todos/${obj.id}`;
+    const resp = await fetch(todosURL,{
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: token,
         },
         body: JSON.stringify(obj),
     });
@@ -32,11 +43,13 @@ export const updateTodos = async (obj) => {
     return data;
 };
 
-export const createTodos = async (obj) => {
-    const resp = await fetch(`${URL}api/todos/`,{
+export async function createTodos(token, obj) {
+    const todosURL = `${URL}api/todos/`;
+    const resp = await fetch(todosURL,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: token,
         },
         body: JSON.stringify(obj),
     });
