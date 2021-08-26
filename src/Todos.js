@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getTodos, createTodos, updateTodos } from './Utils.js';
+// import { getTodos, createTodos, updateTodos } from './Utils.js';
 
 class ToDoList extends Component {
     state = { 
