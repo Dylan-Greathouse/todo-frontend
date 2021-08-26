@@ -10,6 +10,7 @@ class Authorization extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(this.state.email, this.state.password)
         const token = await getToken(
             {
                 email: this.state.email,
@@ -18,7 +19,7 @@ class Authorization extends Component {
             this.props.type
         );
         this.props.setToken(token);
-        
+        this.props.history.push('/todos')
     }
 
     render() { 
@@ -34,7 +35,7 @@ class Authorization extends Component {
                         onChange={(e) => this.setState({ email: e.target.value })} />
                 </div>
                 <div className="form">
-                    <label>Email: </label>
+                    <label>Password: </label>
                     <input
                         type='password'
                         placeholder='Password'
